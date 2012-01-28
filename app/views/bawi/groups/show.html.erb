@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @group.parent_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @group.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @group.name %>
+</p>
+
+<p>
+  <b>Keyword:</b>
+  <%= @group.keyword %>
+</p>
+
+<p>
+  <b>Children count:</b>
+  <%= @group.children_count %>
+</p>
+
+<p>
+  <b>Boards count:</b>
+  <%= @group.boards_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

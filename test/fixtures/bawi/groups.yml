@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  parent_id: 1
+  user_id: 1
+  name: FirstGroup
+  keyword: firstgroup
+  children_count: 1
+  boards_count: 1
+
+two:
+  parent_id: 1
+  user_id: 1
+  name: SecondGroup
+  keyword: secondgroup
+  children_count: 1
+  boards_count: 1
