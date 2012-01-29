@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129162221) do
+ActiveRecord::Schema.define(:version => 20120129163609) do
 
   create_table "bawi_articles", :force => true do |t|
     t.integer  "board_id",                       :null => false
@@ -54,6 +54,20 @@ ActiveRecord::Schema.define(:version => 20120129162221) do
   add_index "bawi_boards", ["group_id"], :name => "index_bawi_boards_on_group_id"
   add_index "bawi_boards", ["keyword"], :name => "index_bawi_boards_on_keyword", :unique => true
   add_index "bawi_boards", ["user_id", "name"], :name => "index_bawi_boards_on_user_id_and_name"
+
+  create_table "bawi_comments", :force => true do |t|
+    t.integer  "board_id",   :null => false
+    t.integer  "user_id",    :null => false
+    t.integer  "article_id", :null => false
+    t.integer  "comment_no", :null => false
+    t.text     "body",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bawi_comments", ["board_id", "article_id"], :name => "index_bawi_comments_on_board_id_and_article_id"
+  add_index "bawi_comments", ["board_id", "comment_no"], :name => "index_bawi_comments_on_board_id_and_comment_no", :unique => true
+  add_index "bawi_comments", ["user_id", "id"], :name => "index_bawi_comments_on_user_id_and_id"
 
   create_table "bawi_groups", :force => true do |t|
     t.integer  "parent_id",      :default => 0, :null => false
