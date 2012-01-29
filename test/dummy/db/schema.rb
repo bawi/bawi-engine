@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121164003) do
+ActiveRecord::Schema.define(:version => 20120128034149) do
+
+  create_table "bawi_boards", :force => true do |t|
+    t.integer  "group_id",        :default => 0, :null => false
+    t.integer  "user_id",                        :null => false
+    t.string   "name",                           :null => false
+    t.string   "keyword",                        :null => false
+    t.integer  "max_article_no",  :default => 0, :null => false
+    t.integer  "max_comment_no",  :default => 0, :null => false
+    t.integer  "articles_count",  :default => 0, :null => false
+    t.integer  "comments_count",  :default => 0, :null => false
+    t.integer  "bookmarks_count", :default => 0, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "bawi_boards", ["group_id"], :name => "index_bawi_boards_on_group_id"
+  add_index "bawi_boards", ["keyword"], :name => "index_bawi_boards_on_keyword", :unique => true
+  add_index "bawi_boards", ["user_id", "name"], :name => "index_bawi_boards_on_user_id_and_name"
 
   create_table "bawi_groups", :force => true do |t|
     t.integer  "parent_id",      :default => 0, :null => false

@@ -1,4 +1,9 @@
 Bawi::Engine.routes.draw do
-  resources :groups
+  resources :boards
+
+  resources :groups do
+    resources :boards
+  end
+
   root to: "groups#index"
 end

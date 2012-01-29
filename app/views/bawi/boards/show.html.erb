@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Group:</b>
+  <%= @board.group_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @board.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @board.name %>
+</p>
+
+<p>
+  <b>Keyword:</b>
+  <%= @board.keyword %>
+</p>
+
+<p>
+  <b>Max article no:</b>
+  <%= @board.max_article_no %>
+</p>
+
+<p>
+  <b>Max comment no:</b>
+  <%= @board.max_comment_no %>
+</p>
+
+<p>
+  <b>Articles count:</b>
+  <%= @board.articles_count %>
+</p>
+
+<p>
+  <b>Comments count:</b>
+  <%= @board.comments_count %>
+</p>
+
+<p>
+  <b>Bookmarks count:</b>
+  <%= @board.bookmarks_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>
