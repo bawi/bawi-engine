@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128034149) do
+ActiveRecord::Schema.define(:version => 20120129162221) do
+
+  create_table "bawi_articles", :force => true do |t|
+    t.integer  "board_id",                       :null => false
+    t.integer  "user_id",                        :null => false
+    t.integer  "article_no",                     :null => false
+    t.integer  "parent_no",                      :null => false
+    t.integer  "thread_no",                      :null => false
+    t.string   "title",                          :null => false
+    t.text     "body",                           :null => false
+    t.integer  "reads_count",     :default => 0, :null => false
+    t.integer  "comments_count",  :default => 0, :null => false
+    t.integer  "likes_count",     :default => 0, :null => false
+    t.integer  "favorites_count", :default => 0, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "bawi_articles", ["board_id", "article_no"], :name => "index_bawi_articles_on_board_id_and_article_no", :unique => true
+  add_index "bawi_articles", ["board_id", "comments_count"], :name => "index_bawi_articles_on_board_id_and_comments_count"
+  add_index "bawi_articles", ["board_id", "favorites_count"], :name => "index_bawi_articles_on_board_id_and_favorites_count"
+  add_index "bawi_articles", ["board_id", "likes_count"], :name => "index_bawi_articles_on_board_id_and_likes_count"
+  add_index "bawi_articles", ["board_id", "reads_count"], :name => "index_bawi_articles_on_board_id_and_reads_count"
+  add_index "bawi_articles", ["board_id", "thread_no"], :name => "index_bawi_articles_on_board_id_and_thread_no"
+  add_index "bawi_articles", ["user_id", "id"], :name => "index_bawi_articles_on_user_id_and_id"
 
   create_table "bawi_boards", :force => true do |t|
     t.integer  "group_id",        :default => 0, :null => false
